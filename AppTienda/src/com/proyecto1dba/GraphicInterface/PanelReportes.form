@@ -65,18 +65,21 @@
                           <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
                           <Component id="jButton_CancelarVerMovimiento" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel77" alignment="0" min="-2" pref="467" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel77" min="-2" pref="467" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -102,7 +105,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cantidad de &#xf3;rdenes recibidas por tipo de producto"/>
+            <Property name="text" type="java.lang.String" value="Montos de ventas total por d&#xed;a"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[467, 22]"/>
             </Property>

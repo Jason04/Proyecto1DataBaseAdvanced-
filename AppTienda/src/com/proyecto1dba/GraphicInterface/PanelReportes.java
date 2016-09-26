@@ -61,7 +61,7 @@ public class PanelReportes extends javax.swing.JPanel {
 
         jLabel77.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel77.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel77.setText("Cantidad de órdenes recibidas por tipo de producto");
+        jLabel77.setText("Montos de ventas total por día");
         jLabel77.setMaximumSize(new java.awt.Dimension(467, 22));
         jLabel77.setMinimumSize(new java.awt.Dimension(467, 22));
 
@@ -113,15 +113,17 @@ public class PanelReportes extends javax.swing.JPanel {
                         .addComponent(jButton_AceptarVerMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
                         .addComponent(jButton_CancelarVerMovimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(jPanel_VentasPorDiaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel_VentasPorDiaLayout.setVerticalGroup(
             jPanel_VentasPorDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_VentasPorDiaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel78)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel_VentasPorDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -14,7 +14,8 @@ public class GraphicInterface {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        PrincipalFrame PF = new PrincipalFrame();
+        JF_PedidoReporte PF;
+        PF = new JF_PedidoReporte();
         PF.setLocationRelativeTo(null);
         PF.setVisible(true); 
     }

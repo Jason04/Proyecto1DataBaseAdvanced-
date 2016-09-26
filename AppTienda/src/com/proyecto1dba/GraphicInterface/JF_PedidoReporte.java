@@ -8,7 +8,7 @@ package com.proyecto1dba.GraphicInterface;
 
 /**
  *
- * @author Joseph
+ * @author Jason
  */
 public class JF_PedidoReporte extends javax.swing.JFrame {
 
@@ -17,7 +17,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     
     private int _activePanel;
    // private Pan_RepFact _panRepFact;
-   // private Pan_RepInv _panRepInv;
+    private PanelReportes _panRep;
     
     /**
      * Creates new form JF_Reportes
@@ -38,14 +38,14 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         _panRepFact.setLocation(20, 60);
         jLayeredPane1.add(_panRepFact, 0);
         _panRepFact.setVisible(true);
-        _panRepFact.setEnabled(true);
+        _panRepFact.setEnabled(true);*/
         
-        _panRepInv = new Pan_RepInv();
-        _panRepInv.setSize(760, 400);
-        _panRepInv.setLocation(20, 60);
-        jLayeredPane1.add(_panRepInv, 0);
-        _panRepInv.setVisible(false);
-        _panRepInv.setEnabled(false);*/
+        _panRep = new PanelReportes();
+        _panRep.setSize(760, 400);
+        _panRep.setLocation(20, 60);
+        jLayeredPane1.add(_panRep, 0);
+        _panRep.setVisible(false);
+        _panRep.setEnabled(false);
     }
     
     private void changeTab(){
@@ -54,10 +54,10 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
             bttRep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttRepAct.png")));
             
           /*  _panRepFact.setVisible(false);
-            _panRepFact.setEnabled(false);
-            
-            _panRepInv.setEnabled(true);
-            _panRepInv.setVisible(true);*/
+            _panRepFact.setEnabled(false);*/
+           
+            _panRep.setEnabled(true);
+            _panRep.setVisible(true);
             
             _activePanel = REP;
             
@@ -65,10 +65,10 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
             bttRep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttRepDct.png")));
             bttPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttPedAct.png")));
             
-           /* _panRepInv.setEnabled(false);
-            _panRepInv.setVisible(false);
+            _panRep.setEnabled(false);
+            _panRep.setVisible(false);
             
-            _panRepFact.setVisible(true);
+           /* _panRepFact.setVisible(true);
             _panRepFact.setEnabled(true);*/
             
             _activePanel = PED;

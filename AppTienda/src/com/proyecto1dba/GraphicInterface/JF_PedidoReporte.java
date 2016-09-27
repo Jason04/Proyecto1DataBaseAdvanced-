@@ -16,7 +16,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     private static final int REP = 1;
     
     private int _activePanel;
-   // private Pan_RepFact _panRepFact;
+    private PanelPedido _panPed;
     private PanelReportes _panRep;
     
     /**
@@ -32,13 +32,13 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     private void startComponents(){
         _activePanel = PED;
         
-       /*
-        _panRepFact = new Pan_RepFact();
-        _panRepFact.setSize(760, 400);
-        _panRepFact.setLocation(20, 60);
-        jLayeredPane1.add(_panRepFact, 0);
-        _panRepFact.setVisible(true);
-        _panRepFact.setEnabled(true);*/
+      
+        _panPed = new PanelPedido();
+        _panPed.setSize(760, 400);
+        _panPed.setLocation(0, 45);
+        jLayeredPane1.add(_panPed, 0);
+        _panPed.setVisible(true);
+        _panPed.setEnabled(true);
         
         _panRep = new PanelReportes();
         _panRep.setSize(760, 400);
@@ -48,13 +48,13 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         _panRep.setEnabled(false);
     }
     
-    private void changeTab(){
+    private  void changeTab(){
         if (_activePanel == PED){
             bttPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttPedDct.png")));
             bttRep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttRepAct.png")));
             
-          /*  _panRepFact.setVisible(false);
-            _panRepFact.setEnabled(false);*/
+            _panPed.setVisible(false);
+            _panPed.setEnabled(false);
            
             _panRep.setEnabled(true);
             _panRep.setVisible(true);
@@ -68,8 +68,8 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
             _panRep.setEnabled(false);
             _panRep.setVisible(false);
             
-           /* _panRepFact.setVisible(true);
-            _panRepFact.setEnabled(true);*/
+            _panPed.setVisible(true);
+            _panPed.setEnabled(true);
             
             _activePanel = PED;
             

@@ -30,7 +30,7 @@ import javax.swing.text.DocumentFilter;
 
 /**
  *
- * @author Oscar Montes
+ * @author Jason Salazar
  */
 public class PanelPedido extends javax.swing.JPanel {
 DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
@@ -1093,7 +1093,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
      * Este metodo es para poder eliminar una fila de la tabla de crear factura
      */
     private void eliminarFila() {
-      //  MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
+        MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
 //        int row = jTable_Factura.getSelectedRow();
 //        ///Si se esta escribiendo en la celda para el editor y luego elimina la
 //        // fila
@@ -1704,11 +1704,8 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_saveBttMouseExited
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-//        NewJDialog_Buscador buscador = new NewJDialog_Buscador();
-//        buscador.actualizaTablaParaClientes();
-//        String cliente = buscador.getCliente();
-//        this.jFormattedTextField_Cliente.setText(cliente);
-//        this.setFocusTablaFact(0);
+        
+       
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void jTextField_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_codigoKeyTyped

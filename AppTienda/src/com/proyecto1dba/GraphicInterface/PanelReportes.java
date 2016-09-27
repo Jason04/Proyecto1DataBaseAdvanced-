@@ -5,6 +5,9 @@
  */
 package com.proyecto1dba.GraphicInterface;
 
+
+import com.proyecto1dba.AccessData.AcessData;
+import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
@@ -14,6 +17,7 @@ import javax.swing.JPanel;
  */
 public class PanelReportes extends javax.swing.JPanel {
     
+    AcessData AD;
     private static final int CantOrdProd       = 0;
     private static final int MontoVentaDia = 1;
     private static final int MontoVentaDiaProd   = 2;
@@ -22,6 +26,7 @@ public class PanelReportes extends javax.swing.JPanel {
      * Creates new form PanelReportes
      */
     public PanelReportes() {
+        AD = new AcessData();
         initComponents();
     }
 
@@ -66,16 +71,20 @@ public class PanelReportes extends javax.swing.JPanel {
         jButton_AceptarVerMovimiento3 = new javax.swing.JButton();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox_cantones = new javax.swing.JComboBox<>();
+        jDialog_resultados = new javax.swing.JDialog();
+        CantOrdCanton = new javax.swing.JPanel();
+        jButton14 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabelCantidad = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         label1 = new java.awt.Label();
         jLabel14 = new javax.swing.JLabel();
 
-        jDialog1.setMaximumSize(new java.awt.Dimension(470, 270));
         jDialog1.setMinimumSize(new java.awt.Dimension(470, 270));
         jDialog1.setUndecorated(true);
-        jDialog1.setPreferredSize(new java.awt.Dimension(470, 270));
         jDialog1.setResizable(false);
         jDialog1.getContentPane().setLayout(null);
 
@@ -164,11 +173,9 @@ public class PanelReportes extends javax.swing.JPanel {
 
         jDialog2.setIconImage(null);
         jDialog2.setIconImages(null);
-        jDialog2.setMaximumSize(new java.awt.Dimension(500, 270));
         jDialog2.setMinimumSize(new java.awt.Dimension(500, 270));
         jDialog2.setModal(true);
         jDialog2.setUndecorated(true);
-        jDialog2.setPreferredSize(new java.awt.Dimension(500, 270));
         jDialog2.setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -337,10 +344,10 @@ public class PanelReportes extends javax.swing.JPanel {
                 .addComponent(jLabel84)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dateChooserCombo_IniMovimiento1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
@@ -384,7 +391,7 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel89.setForeground(new java.awt.Color(255, 255, 255));
         jLabel89.setText("Cantón:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cantón" }));
+        jComboBox_cantones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cantón" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -411,7 +418,7 @@ public class PanelReportes extends javax.swing.JPanel {
                         .addGap(60, 60, 60)
                         .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox_cantones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -429,7 +436,7 @@ public class PanelReportes extends javax.swing.JPanel {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox_cantones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(jButton_AceptarVerMovimiento3)))
                 .addGap(23, 23, 23))
@@ -464,6 +471,92 @@ public class PanelReportes extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jDialog_resultados.setMaximumSize(new java.awt.Dimension(572, 371));
+        jDialog_resultados.setMinimumSize(new java.awt.Dimension(572, 371));
+        jDialog_resultados.setUndecorated(true);
+        jDialog_resultados.setPreferredSize(new java.awt.Dimension(572, 371));
+
+        CantOrdCanton.setBackground(new java.awt.Color(255, 255, 255));
+        CantOrdCanton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CantOrdCanton.setAlignmentX(0.0F);
+        CantOrdCanton.setAlignmentY(0.0F);
+        CantOrdCanton.setMaximumSize(new java.awt.Dimension(572, 371));
+        CantOrdCanton.setMinimumSize(new java.awt.Dimension(572, 371));
+        CantOrdCanton.setPreferredSize(new java.awt.Dimension(572, 371));
+        CantOrdCanton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                CantOrdCantonMouseDragged(evt);
+            }
+        });
+        CantOrdCanton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CantOrdCantonMousePressed(evt);
+            }
+        });
+
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/Cerrar.png"))); // NOI18N
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Khmer UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("Cantidad de órdenes recibidas por lugar de residencia del cliente");
+
+        jLabelCantidad.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelCantidad.setFont(new java.awt.Font("Khmer UI", 0, 16)); // NOI18N
+        jLabelCantidad.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelCantidad.setText("cant");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel10.setText("Cantidad:");
+
+        javax.swing.GroupLayout CantOrdCantonLayout = new javax.swing.GroupLayout(CantOrdCanton);
+        CantOrdCanton.setLayout(CantOrdCantonLayout);
+        CantOrdCantonLayout.setHorizontalGroup(
+            CantOrdCantonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CantOrdCantonLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CantOrdCantonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+            .addGroup(CantOrdCantonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        CantOrdCantonLayout.setVerticalGroup(
+            CantOrdCantonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CantOrdCantonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
+                .addGroup(CantOrdCantonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jDialog_resultadosLayout = new javax.swing.GroupLayout(jDialog_resultados.getContentPane());
+        jDialog_resultados.getContentPane().setLayout(jDialog_resultadosLayout);
+        jDialog_resultadosLayout.setHorizontalGroup(
+            jDialog_resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CantOrdCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jDialog_resultadosLayout.setVerticalGroup(
+            jDialog_resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CantOrdCanton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setAlignmentX(0.0F);
@@ -546,7 +639,14 @@ public class PanelReportes extends javax.swing.JPanel {
             showPanelOnDialog2(jPanel2);             
            
         } else if (selection == OrdResiCli){
-             showPanelOnDialog2(jPanel3);  
+          ArrayList<String> cantones = AD.getCantonesClientes();
+             this.jComboBox_cantones.removeAllItems();
+        for (String canton : cantones) {
+            //Muestra las categorias disponib
+            this.jComboBox_cantones.addItem(canton);
+        }               
+            
+            showPanelOnDialog2(jPanel3);  
            
         }
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -620,14 +720,33 @@ public class PanelReportes extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_AceptarVerMovimiento2ActionPerformed
 
     private void jButton_AceptarVerMovimiento3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AceptarVerMovimiento3ActionPerformed
-        // TODO add your handling code here:
+        String result = AD.getOrdenesCanton((jComboBox_cantones.getSelectedIndex()+1)+"");
+        jLabelCantidad.setText(result);
+        jDialog2.setVisible(false);
+        showResult(4);
+        
+        
     }//GEN-LAST:event_jButton_AceptarVerMovimiento3ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        jDialog_resultados.setVisible(false);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void CantOrdCantonMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CantOrdCantonMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CantOrdCantonMouseDragged
+
+    private void CantOrdCantonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CantOrdCantonMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CantOrdCantonMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CantOrdCanton;
     private datechooser.beans.DateChooserCombo dateChooserCombo_IniMovimiento;
     private datechooser.beans.DateChooserCombo dateChooserCombo_IniMovimiento1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton_AceptarVerMovimiento;
     private javax.swing.JButton jButton_AceptarVerMovimiento1;
     private javax.swing.JButton jButton_AceptarVerMovimiento2;
@@ -637,9 +756,11 @@ public class PanelReportes extends javax.swing.JPanel {
     private javax.swing.JButton jButton_CancelarVerMovimiento2;
     private javax.swing.JButton jButton_CancelarVerMovimiento3;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox_cantones;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialog_resultados;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
@@ -654,6 +775,8 @@ public class PanelReportes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -689,6 +812,20 @@ public class PanelReportes extends javax.swing.JPanel {
         jPanel3.setVisible(false); 
         jD.setVisible(false);
 
+        
+    }
+
+    private void showResult(int numReporte) {
+        CantOrdCanton.setVisible(false);
+        
+        if(numReporte == 1){
+        }
+        else if( numReporte==4){
+            CantOrdCanton.setVisible(true);
+            jDialog_resultados.setLocationRelativeTo(null);
+            jDialog_resultados.setVisible(true);
+            
+        }
         
     }
 }

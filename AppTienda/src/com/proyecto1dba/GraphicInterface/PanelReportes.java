@@ -253,7 +253,7 @@ public class PanelReportes extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)))
+                        .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -271,7 +271,7 @@ public class PanelReportes extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_AceptarVerMovimiento1)
                     .addComponent(jButton_CancelarVerMovimiento1))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
@@ -316,6 +316,11 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel86.setText("idProducto:");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchLttBlckBtt.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -842,6 +847,19 @@ public class PanelReportes extends javax.swing.JPanel {
     private void VentasPordiaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VentasPordiaMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_VentasPordiaMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         NewJDialog_Buscador buscador = new NewJDialog_Buscador();
+         buscador.actualizaTablaParaInventario();
+
+         String id = buscador.getIdProducto();
+         if(id==null){
+            return;
+         }
+         jTextField1.setText(id);
+        
+         
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -548,6 +548,9 @@
                   <Image iconType="3" name="/com.proyecto1dba.Images/searchLttBlckBtt.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

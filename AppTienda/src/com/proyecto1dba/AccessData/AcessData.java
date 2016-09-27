@@ -62,4 +62,17 @@ public class AcessData implements AccessDataInteface {
         
     }
     
+    public ArrayList<ArrayList<String>> getProductos(){
+      
+    ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("idProducto");
+        columnas_tabla.add("Descripcion");
+        columnas_tabla.add("precio");        
+        ArrayList<ArrayList<String>> result = restfulConnection.getRESTful
+        ("https://sanjose-onlivecr.rhcloud.com/listaProductos", columnas_tabla);       
+        
+    return result;
+    
+    }
+    
 }

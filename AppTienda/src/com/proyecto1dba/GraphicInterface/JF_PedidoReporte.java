@@ -26,7 +26,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         initComponents();
         startComponents();
         //setLocation(StartWindow.getPosX(), StartWindow.getPosY());
-        labUsuario.setText("Admin");
+        
     }
     
     private void startComponents(){
@@ -86,7 +86,6 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        labUsuario = new javax.swing.JLabel();
         bttPedido = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bttRep = new javax.swing.JLabel();
@@ -105,12 +104,6 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         jLayeredPane1.setBackground(new java.awt.Color(153, 153, 153));
         jLayeredPane1.setMinimumSize(new java.awt.Dimension(800, 500));
         jLayeredPane1.setOpaque(true);
-
-        labUsuario.setFont(new java.awt.Font("Calibri", 2, 14)); // NOI18N
-        labUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        labUsuario.setText("Nombre de Usuario Aquí - Cargo");
-        jLayeredPane1.add(labUsuario);
-        labUsuario.setBounds(80, 480, 540, 17);
 
         bttPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttPedAct.png"))); // NOI18N
         bttPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -179,6 +172,5 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     private javax.swing.JLabel bttRep;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLabel labUsuario;
     // End of variables declaration//GEN-END:variables
 }

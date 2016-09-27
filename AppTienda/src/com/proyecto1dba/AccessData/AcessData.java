@@ -103,4 +103,18 @@ public class AcessData implements AccessDataInteface {
     
     }
     
+    public String getCantOrdTipoProd(String tipo){
+       
+        String result = "";
+        ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("CANTIDAD");       
+        ArrayList<ArrayList<String>> cantidad = restfulConnection.getRESTful
+        ("https://sanjose-onlivecr.rhcloud.com/ordenesxtipoProducto?idProducto="
+                +tipo, columnas_tabla);  
+     
+        result = cantidad.get(0).get(0);
+        
+        return result;
+    }
+    
 }

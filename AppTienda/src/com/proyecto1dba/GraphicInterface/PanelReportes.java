@@ -57,6 +57,7 @@ public class PanelReportes extends javax.swing.JPanel {
 
         jDialog1.setMaximumSize(new java.awt.Dimension(470, 270));
         jDialog1.setMinimumSize(new java.awt.Dimension(470, 270));
+        jDialog1.setUndecorated(true);
         jDialog1.setPreferredSize(new java.awt.Dimension(470, 270));
         jDialog1.setResizable(false);
         jDialog1.getContentPane().setLayout(null);
@@ -144,8 +145,12 @@ public class PanelReportes extends javax.swing.JPanel {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
+        jDialog2.setIconImage(null);
+        jDialog2.setIconImages(null);
         jDialog2.setMaximumSize(new java.awt.Dimension(500, 270));
         jDialog2.setMinimumSize(new java.awt.Dimension(500, 270));
+        jDialog2.setModal(true);
+        jDialog2.setUndecorated(true);
         jDialog2.setPreferredSize(new java.awt.Dimension(500, 270));
         jDialog2.setResizable(false);
 
@@ -234,11 +239,11 @@ public class PanelReportes extends javax.swing.JPanel {
         jDialog2.getContentPane().setLayout(jDialog2Layout);
         jDialog2Layout.setHorizontalGroup(
             jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         jDialog2Layout.setVerticalGroup(
             jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         setAlignmentX(0.0F);

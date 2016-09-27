@@ -31,6 +31,21 @@ public class AcessData implements AccessDataInteface {
         
         return result;
     }
+    public  ArrayList<String> getTiposProd(){
+        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("Nombre");
+        ArrayList<ArrayList<String>> tiposProd = restfulConnection.getRESTful
+        ("https://sanjose-onlivecr.rhcloud.com/listaTipoProducto",
+                columnas_tabla);
+       
+        for (ArrayList<String> data : tiposProd) {
+           result.add(data.get(0));
+        }
+        
+        return result;
+    }
+    
     @Override
     public  String getOrdenesCanton(String numCanton){
         String result="";
@@ -71,6 +86,19 @@ public class AcessData implements AccessDataInteface {
         ArrayList<ArrayList<String>> result = restfulConnection.getRESTful
         ("https://sanjose-onlivecr.rhcloud.com/listaProductos", columnas_tabla);       
         
+    return result;
+    
+    }
+    public String ventasProdDias(String date,String idProd){
+     String result = "";
+    ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("MONTO");       
+        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful
+        ("https://sanjose-onlivecr.rhcloud.com/totalxdiayproducto?date='"
+                +date+"'&idProducto="+idProd, columnas_tabla);  
+     
+     result = monto.get(0).get(0);
+            
     return result;
     
     }

@@ -57,12 +57,12 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel82 = new javax.swing.JLabel();
         jButton_AceptarVerMovimiento1 = new javax.swing.JButton();
         jButton_CancelarVerMovimiento1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox_tipos = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jButton_CancelarVerMovimiento2 = new javax.swing.JButton();
         jLabel83 = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
-        dateChooserCombo_IniMovimiento1 = new datechooser.beans.DateChooserCombo();
+        dateChooserCombo_VentProdFech = new datechooser.beans.DateChooserCombo();
         jLabel85 = new javax.swing.JLabel();
         jButton_AceptarVerMovimiento2 = new javax.swing.JButton();
         jLabel86 = new javax.swing.JLabel();
@@ -90,6 +90,15 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel_dia = new javax.swing.JLabel();
+        VentasPorProdDia = new javax.swing.JPanel();
+        jButton16 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabelMonto1 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel_dia1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabelProducto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         label1 = new java.awt.Label();
@@ -227,7 +236,7 @@ public class PanelReportes extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo1" }));
+        jComboBox_tipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo1" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -246,7 +255,7 @@ public class PanelReportes extends javax.swing.JPanel {
                                 .addGap(59, 59, 59)
                                 .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBox_tipos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -266,7 +275,7 @@ public class PanelReportes extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_tipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_AceptarVerMovimiento1)
@@ -295,9 +304,9 @@ public class PanelReportes extends javax.swing.JPanel {
         jLabel84.setForeground(new java.awt.Color(255, 255, 255));
         jLabel84.setText("Indicar:");
 
-        dateChooserCombo_IniMovimiento1.setCalendarBackground(new java.awt.Color(0, 51, 51));
-        dateChooserCombo_IniMovimiento1.setNothingAllowed(false);
-        dateChooserCombo_IniMovimiento1.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
+        dateChooserCombo_VentProdFech.setCalendarBackground(new java.awt.Color(0, 51, 51));
+        dateChooserCombo_VentProdFech.setNothingAllowed(false);
+        dateChooserCombo_VentProdFech.setBehavior(datechooser.model.multiple.MultyModelBehavior.SELECT_SINGLE);
 
         jLabel85.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel85.setForeground(new java.awt.Color(255, 255, 255));
@@ -346,7 +355,7 @@ public class PanelReportes extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel85)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateChooserCombo_IniMovimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dateChooserCombo_VentProdFech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -368,7 +377,7 @@ public class PanelReportes extends javax.swing.JPanel {
                         .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dateChooserCombo_IniMovimiento1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dateChooserCombo_VentProdFech, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -667,6 +676,99 @@ public class PanelReportes extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        VentasPorProdDia.setBackground(new java.awt.Color(255, 255, 255));
+        VentasPorProdDia.setAlignmentX(0.0F);
+        VentasPorProdDia.setAlignmentY(0.0F);
+        VentasPorProdDia.setMaximumSize(new java.awt.Dimension(572, 371));
+        VentasPorProdDia.setMinimumSize(new java.awt.Dimension(572, 371));
+        VentasPorProdDia.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                VentasPorProdDiaMouseDragged(evt);
+            }
+        });
+        VentasPorProdDia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VentasPorProdDiaMousePressed(evt);
+            }
+        });
+
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/Cerrar.png"))); // NOI18N
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Khmer UI", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("Monto de ventas total  por día y por producto");
+
+        jLabelMonto1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMonto1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabelMonto1.setText("cant");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel15.setText("Monto:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel3.setText("Día:");
+
+        jLabel_dia1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel_dia1.setAlignmentY(0.0F);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel4.setText("IdProducto:");
+
+        jLabelProducto.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        javax.swing.GroupLayout VentasPorProdDiaLayout = new javax.swing.GroupLayout(VentasPorProdDia);
+        VentasPorProdDia.setLayout(VentasPorProdDiaLayout);
+        VentasPorProdDiaLayout.setHorizontalGroup(
+            VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasPorProdDiaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                    .addGroup(VentasPorProdDiaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
+            .addGroup(VentasPorProdDiaLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)))
+                .addGap(22, 22, 22)
+                .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_dia1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelMonto1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        VentasPorProdDiaLayout.setVerticalGroup(
+            VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentasPorProdDiaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_dia1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(VentasPorProdDiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelMonto1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jDialog_resultadosLayout = new javax.swing.GroupLayout(jDialog_resultados.getContentPane());
         jDialog_resultados.getContentPane().setLayout(jDialog_resultadosLayout);
         jDialog_resultadosLayout.setHorizontalGroup(
@@ -677,6 +779,11 @@ public class PanelReportes extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(VentasPordia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
+            .addGroup(jDialog_resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialog_resultadosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(VentasPorProdDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jDialog_resultadosLayout.setVerticalGroup(
             jDialog_resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -686,6 +793,11 @@ public class PanelReportes extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(VentasPordia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
+            .addGroup(jDialog_resultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialog_resultadosLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(VentasPorProdDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(12, Short.MAX_VALUE)))
         );
 
         setAlignmentX(0.0F);
@@ -759,6 +871,12 @@ public class PanelReportes extends javax.swing.JPanel {
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         int selection = jTable1.getSelectedRow();
         if (selection == CantOrdProd){
+            ArrayList<String> tipoPred = AD.getTiposProd();
+             this.jComboBox_tipos.removeAllItems();
+        for (String tipo : tipoPred) {            
+            this.jComboBox_tipos.addItem(tipo);
+        }            
+            
              showPanelOnDialog2(jPanel1);
 
         } else if (selection == MontoVentaDia){
@@ -771,7 +889,7 @@ public class PanelReportes extends javax.swing.JPanel {
           ArrayList<String> cantones = AD.getCantonesClientes();
              this.jComboBox_cantones.removeAllItems();
         for (String canton : cantones) {
-            //Muestra las categorias disponib
+           
             this.jComboBox_cantones.addItem(canton);
         }               
             
@@ -795,7 +913,7 @@ public class PanelReportes extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_CancelarVerMovimientoActionPerformed
 
     private void jButton_AceptarVerMovimiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AceptarVerMovimiento1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton_AceptarVerMovimiento1ActionPerformed
 
     private void jButton_CancelarVerMovimiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CancelarVerMovimiento1ActionPerformed
@@ -811,7 +929,15 @@ public class PanelReportes extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_CancelarVerMovimiento3ActionPerformed
 
     private void jButton_AceptarVerMovimiento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AceptarVerMovimiento2ActionPerformed
-        // TODO add your handling code here:
+      String monto = AD.ventasProdDias(dateF.format(dateChooserCombo_VentProdFech.
+      getSelectedDate().getTime()),jTextField1.getText());
+      jLabel_dia1.setText(dateF.format(dateChooserCombo_VentProdFech.
+      getSelectedDate().getTime()));
+      jLabelProducto.setText(jTextField1.getText());
+      jLabelMonto1.setText(monto);
+      jDialog2.setVisible(false);
+      showResult(3);
+      
     }//GEN-LAST:event_jButton_AceptarVerMovimiento2ActionPerformed
 
     private void jButton_AceptarVerMovimiento3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AceptarVerMovimiento3ActionPerformed
@@ -861,15 +987,29 @@ public class PanelReportes extends javax.swing.JPanel {
          
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+         jDialog_resultados.setVisible(false);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void VentasPorProdDiaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VentasPorProdDiaMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VentasPorProdDiaMouseDragged
+
+    private void VentasPorProdDiaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VentasPorProdDiaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VentasPorProdDiaMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CantOrdCanton;
+    private javax.swing.JPanel VentasPorProdDia;
     private javax.swing.JPanel VentasPordia;
     private datechooser.beans.DateChooserCombo dateChooserCombo_DateReporte;
-    private datechooser.beans.DateChooserCombo dateChooserCombo_IniMovimiento1;
+    private datechooser.beans.DateChooserCombo dateChooserCombo_VentProdFech;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton_AceptarVerMovimiento;
     private javax.swing.JButton jButton_AceptarVerMovimiento1;
     private javax.swing.JButton jButton_AceptarVerMovimiento2;
@@ -878,8 +1018,8 @@ public class PanelReportes extends javax.swing.JPanel {
     private javax.swing.JButton jButton_CancelarVerMovimiento1;
     private javax.swing.JButton jButton_CancelarVerMovimiento2;
     private javax.swing.JButton jButton_CancelarVerMovimiento3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox_cantones;
+    private javax.swing.JComboBox<String> jComboBox_tipos;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog_resultados;
@@ -887,8 +1027,12 @@ public class PanelReportes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
@@ -905,8 +1049,11 @@ public class PanelReportes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelMonto;
+    private javax.swing.JLabel jLabelMonto1;
+    private javax.swing.JLabel jLabelProducto;
     private javax.swing.JLabel jLabel_canton;
     private javax.swing.JLabel jLabel_dia;
+    private javax.swing.JLabel jLabel_dia1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -948,18 +1095,25 @@ public class PanelReportes extends javax.swing.JPanel {
     private void showResult(int numReporte) {
         CantOrdCanton.setVisible(false);
         VentasPordia.setVisible(false);
+        VentasPorProdDia.setVisible(false);
         
         if(numReporte == 1){
         }
         else if( numReporte==2){
-            VentasPordia.setVisible(true);
             jDialog_resultados.setLocationRelativeTo(null);
+            VentasPordia.setVisible(true);
+            jDialog_resultados.setVisible(true);
+            
+        }
+         else if( numReporte==3){
+              jDialog_resultados.setLocationRelativeTo(null);
+            VentasPorProdDia.setVisible(true);
             jDialog_resultados.setVisible(true);
             
         }
         else if( numReporte==4){
-            CantOrdCanton.setVisible(true);
             jDialog_resultados.setLocationRelativeTo(null);
+            CantOrdCanton.setVisible(true);
             jDialog_resultados.setVisible(true);
             
         }

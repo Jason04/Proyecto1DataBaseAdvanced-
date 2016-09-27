@@ -46,4 +46,20 @@ public class AcessData implements AccessDataInteface {
     
     }
     
+    public String ventaPorDia(String date){
+    String result = "";
+    
+     ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("MONTO");
+        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful
+        ("https://sanjose-onlivecr.rhcloud.com/totalxdia?date='"+
+                date +"'"
+                , columnas_tabla);
+        result = monto.get(0).get(0);
+        
+    return result;
+        
+        
+    }
+    
 }

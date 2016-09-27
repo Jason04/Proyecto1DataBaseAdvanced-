@@ -42,6 +42,14 @@ public class PanelReportes extends javax.swing.JPanel {
         jButton_CancelarVerMovimiento = new javax.swing.JButton();
         jLabel79 = new javax.swing.JLabel();
         dateChooserCombo_IniMovimiento = new datechooser.beans.DateChooserCombo();
+        jDialog2 = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jButton_AceptarVerMovimiento1 = new javax.swing.JButton();
+        jButton_CancelarVerMovimiento1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         label1 = new java.awt.Label();
@@ -136,6 +144,103 @@ public class PanelReportes extends javax.swing.JPanel {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
+        jDialog2.setMaximumSize(new java.awt.Dimension(500, 270));
+        jDialog2.setMinimumSize(new java.awt.Dimension(500, 270));
+        jDialog2.setPreferredSize(new java.awt.Dimension(500, 270));
+        jDialog2.setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setMaximumSize(new java.awt.Dimension(489, 233));
+        jPanel1.setMinimumSize(new java.awt.Dimension(489, 233));
+        jPanel1.setPreferredSize(new java.awt.Dimension(489, 233));
+
+        jLabel80.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel80.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel80.setText("Cantidad de ordenes recibidas por tiopo de producto");
+        jLabel80.setMaximumSize(new java.awt.Dimension(467, 22));
+        jLabel80.setMinimumSize(new java.awt.Dimension(467, 22));
+
+        jLabel81.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel81.setText("Seleccionar:");
+
+        jLabel82.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel82.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel82.setText("Tipo:");
+
+        jButton_AceptarVerMovimiento1.setForeground(new java.awt.Color(0, 51, 51));
+        jButton_AceptarVerMovimiento1.setText("Aceptar");
+        jButton_AceptarVerMovimiento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_AceptarVerMovimiento1ActionPerformed(evt);
+            }
+        });
+
+        jButton_CancelarVerMovimiento1.setText("Cancelar");
+        jButton_CancelarVerMovimiento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_CancelarVerMovimiento1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo1" }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(254, 254, 254)
+                                .addComponent(jButton_AceptarVerMovimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)
+                                .addComponent(jButton_CancelarVerMovimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel80, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel81)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_AceptarVerMovimiento1)
+                    .addComponent(jButton_CancelarVerMovimiento1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
         setMinimumSize(new java.awt.Dimension(760, 400));
@@ -207,7 +312,8 @@ public class PanelReportes extends javax.swing.JPanel {
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
         int selection = jTable1.getSelectedRow();
         if (selection == CantOrdProd){
-            
+            jDialog2.setLocationRelativeTo(null);
+             jDialog2.setVisible(true);
           
         } else if (selection == MontoVentaDia){
             showPanelOnDialog(jPanel_VentasPorDia, jDialog1);
@@ -267,16 +373,32 @@ public class PanelReportes extends javax.swing.JPanel {
         jDialog1.setVisible(false);
     }//GEN-LAST:event_jButton_CancelarVerMovimientoActionPerformed
 
+    private void jButton_AceptarVerMovimiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AceptarVerMovimiento1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_AceptarVerMovimiento1ActionPerformed
+
+    private void jButton_CancelarVerMovimiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CancelarVerMovimiento1ActionPerformed
+        jDialog2.setVisible(false);
+    }//GEN-LAST:event_jButton_CancelarVerMovimiento1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo dateChooserCombo_IniMovimiento;
     private javax.swing.JButton jButton_AceptarVerMovimiento;
+    private javax.swing.JButton jButton_AceptarVerMovimiento1;
     private javax.swing.JButton jButton_CancelarVerMovimiento;
+    private javax.swing.JButton jButton_CancelarVerMovimiento1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel_VentasPorDia;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

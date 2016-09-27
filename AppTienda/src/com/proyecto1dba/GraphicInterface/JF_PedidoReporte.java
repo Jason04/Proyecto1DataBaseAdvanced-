@@ -165,8 +165,8 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     }//GEN-LAST:event_bttRepMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-       // StartWindow.getInstance().enableMe();
         this.dispose();
+        System.exit(1);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

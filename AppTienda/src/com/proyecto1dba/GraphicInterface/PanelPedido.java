@@ -179,9 +179,10 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         jFormattedTextField_Total = new javax.swing.JFormattedTextField();
         jLabel16 = new javax.swing.JLabel();
         jFormattedTextField_Cliente = new javax.swing.JFormattedTextField();
-        trashBtt = new javax.swing.JLabel();
+        BuscarP = new javax.swing.JLabel();
         saveBtt = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
+        trashBtt1 = new javax.swing.JLabel();
 
         jDialog_CrearProducto.setTitle("Crear Producto");
         jDialog_CrearProducto.setMinimumSize(new java.awt.Dimension(400, 230));
@@ -946,9 +947,9 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         jFormattedTextField_Total.setBounds(510, 330, 180, 50);
 
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Cliente");
+        jLabel16.setText("Cliente:");
         jLayeredPane1.add(jLabel16);
-        jLabel16.setBounds(180, 20, 60, 30);
+        jLabel16.setBounds(172, 21, 50, 30);
 
         jFormattedTextField_Cliente.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextField_Cliente.setText("Cliente Generico");
@@ -980,26 +981,26 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         jLayeredPane1.add(jFormattedTextField_Cliente);
         jFormattedTextField_Cliente.setBounds(220, 26, 250, 20);
 
-        trashBtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBtt.png"))); // NOI18N
-        trashBtt.setToolTipText("Eliminar fila seleccionada");
-        trashBtt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        trashBtt.setMaximumSize(new java.awt.Dimension(40, 20));
-        trashBtt.setMinimumSize(new java.awt.Dimension(40, 20));
-        trashBtt.setPreferredSize(new java.awt.Dimension(40, 20));
-        trashBtt.addMouseListener(new java.awt.event.MouseAdapter() {
+        BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBtt.png"))); // NOI18N
+        BuscarP.setToolTipText("Eliminar fila seleccionada");
+        BuscarP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BuscarP.setMaximumSize(new java.awt.Dimension(40, 20));
+        BuscarP.setMinimumSize(new java.awt.Dimension(40, 20));
+        BuscarP.setPreferredSize(new java.awt.Dimension(40, 20));
+        BuscarP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                trashBttMouseClicked(evt);
+                BuscarPMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                trashBttMouseEntered(evt);
+                BuscarPMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                trashBttMouseExited(evt);
+                BuscarPMouseExited(evt);
             }
         });
-        jLayeredPane1.setLayer(trashBtt, javax.swing.JLayeredPane.PALETTE_LAYER);
-        jLayeredPane1.add(trashBtt);
-        trashBtt.setBounds(10, 120, 40, 40);
+        jLayeredPane1.setLayer(BuscarP, javax.swing.JLayeredPane.PALETTE_LAYER);
+        jLayeredPane1.add(BuscarP);
+        BuscarP.setBounds(10, 120, 40, 40);
 
         saveBtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/saveBtt.png"))); // NOI18N
         saveBtt.setToolTipText("Guardar factura");
@@ -1030,6 +1031,27 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         });
         jLayeredPane1.add(background);
         background.setBounds(0, 0, 760, 480);
+
+        trashBtt1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBtt.png"))); // NOI18N
+        trashBtt1.setToolTipText("Eliminar fila seleccionada");
+        trashBtt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        trashBtt1.setMaximumSize(new java.awt.Dimension(40, 20));
+        trashBtt1.setMinimumSize(new java.awt.Dimension(40, 20));
+        trashBtt1.setPreferredSize(new java.awt.Dimension(40, 20));
+        trashBtt1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                trashBtt1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                trashBtt1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                trashBtt1MouseExited(evt);
+            }
+        });
+        jLayeredPane1.setLayer(trashBtt1, javax.swing.JLayeredPane.PALETTE_LAYER);
+        jLayeredPane1.add(trashBtt1);
+        trashBtt1.setBounds(10, 70, 40, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1626,9 +1648,9 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
 
     }//GEN-LAST:event_jButton_CrearClienteKeyPressed
 
-    private void trashBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBttMouseClicked
+    private void BuscarPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseClicked
         this.eliminarFila();
-    }//GEN-LAST:event_trashBttMouseClicked
+    }//GEN-LAST:event_BuscarPMouseClicked
     private boolean revisarProductosFactura(){
         if(this.jTable_Factura.getValueAt(0,0).equals("")){
             JOptionPane.showMessageDialog(
@@ -1665,13 +1687,13 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
 //        justSavePrincipalCall();}
     }//GEN-LAST:event_saveBttMouseClicked
 
-    private void trashBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBttMouseEntered
-        trashBtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBttOvr.png")));
-    }//GEN-LAST:event_trashBttMouseEntered
+    private void BuscarPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseEntered
+        BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBttOvr.png")));
+    }//GEN-LAST:event_BuscarPMouseEntered
 
-    private void trashBttMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBttMouseExited
-        trashBtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBtt.png")));
-    }//GEN-LAST:event_trashBttMouseExited
+    private void BuscarPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseExited
+        BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBtt.png")));
+    }//GEN-LAST:event_BuscarPMouseExited
 
     private void saveBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveBttMouseEntered
         saveBtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/saveBttOvr.png")));
@@ -2142,6 +2164,18 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     private void jFormattedTextField_ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextField_ClienteMouseClicked
         this.jFormattedTextField_Cliente.selectAll();
     }//GEN-LAST:event_jFormattedTextField_ClienteMouseClicked
+
+    private void trashBtt1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBtt1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trashBtt1MouseClicked
+
+    private void trashBtt1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBtt1MouseEntered
+         BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBttOvr.png")));
+    }//GEN-LAST:event_trashBtt1MouseEntered
+
+    private void trashBtt1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBtt1MouseExited
+        BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBtt.png")));
+    }//GEN-LAST:event_trashBtt1MouseExited
     /**
      * Este metodo devuelve toda la informacion de la tabla de crear factura
      *
@@ -2223,6 +2257,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JLabel BuscarP;
     javax.swing.JLabel background;
     datechooser.beans.DateChooserCombo dateChooserCombo_CrearCliente;
     javax.swing.JButton jButton1;
@@ -2312,7 +2347,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     javax.swing.JTextField jTextField_nombre;
     javax.swing.JLabel lbPagoTitle;
     javax.swing.JLabel saveBtt;
-    javax.swing.JLabel trashBtt;
+    javax.swing.JLabel trashBtt1;
     // End of variables declaration//GEN-END:variables
     /**
      * Este metodo permite crear una factura y guardala en la base de datos

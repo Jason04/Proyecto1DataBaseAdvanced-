@@ -6,6 +6,7 @@
 package com.proyecto1dba.AccessData;
 
 import com.proyecto1dba.connections.restfulConnection;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -25,6 +26,21 @@ public class AcessData implements AccessDataInteface {
         ArrayList<ArrayList<String>> cantones = restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/listaCantones", columnas_tabla);
 
         for (ArrayList<String> data : cantones) {
+            result.add(data.get(0));
+        }
+
+        return result;
+    }
+    
+      public ArrayList<String>getRestaurant() {
+        ArrayList<String> result = new ArrayList<>();
+        ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("Nombre");
+        ArrayList<ArrayList<String>> restaurant = restfulConnection.
+                getRESTful("https://sanjose-onlivecr.rhcloud.com/listaRestaurantes",
+                columnas_tabla);
+
+        for (ArrayList<String> data : restaurant) {
             result.add(data.get(0));
         }
 
@@ -149,15 +165,39 @@ public class AcessData implements AccessDataInteface {
     
     public String CrearPedido(String idRestaurante,String idEmpleado,
             String idCliente, String listProd ){
-        System.out.println("https://sanjose-onlivecr.rhcloud.com/"
-                + "agregarPedido?listaProductos='"
-                +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
-                "&idPersona="+idCliente);
         
         return restfulConnection.postRESTful( "https://sanjose-onlivecr.rhcloud.com/"
                 + "agregarPedido?listaProductos='"
                 +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
                 "&idPersona="+idCliente, "");    
+    }
+
+    public String getNombreProd(String idProd) {
+        ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("Descripcion");
+
+        ArrayList<ArrayList<String>> result = 
+                restfulConnection.
+             getRESTful("https://sanjose-onlivecr.rhcloud.com/"
+                     + "infoProducto?idProducto="+ idProd,
+                     columnas_tabla);
+        return result.get(0).get(0);
+    }
+
+    public String getPrecioProd(String idProd) {
+        
+        ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("precio");
+
+        ArrayList<ArrayList<String>> result = 
+                restfulConnection.
+             getRESTful("https://sanjose-onlivecr.rhcloud.com/"
+                     + "infoProducto?idProducto="+ idProd,
+                     columnas_tabla);
+        
+        return result.get(0).get(0);
+         
+          
     }
 
 }

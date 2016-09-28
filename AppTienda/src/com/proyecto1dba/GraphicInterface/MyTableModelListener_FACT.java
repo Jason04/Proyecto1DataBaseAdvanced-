@@ -5,6 +5,7 @@
 package com.proyecto1dba.GraphicInterface;
 
 
+import com.proyecto1dba.AccessData.AcessData;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -34,11 +35,13 @@ public class MyTableModelListener_FACT implements TableModelListener {
    // private Direct_Control_BD BDmanagment;
     //Es el TextField que va a guardar los datos segun lo que pase en la tabla
    private JFormattedTextField total;
+   AcessData AD;
 
   MyTableModelListener_FACT(JTable table,String oldValue,JFormattedTextField total) {
     this.table = table;
     this.oldValue =oldValue;
     this.total=total;
+    AD = new AcessData();
     
   }
 
@@ -64,12 +67,14 @@ public class MyTableModelListener_FACT implements TableModelListener {
     
       
       if (columnName.equals("Cod. Articulo")) {
-          String codigo = data.toString();
-          BigDecimal precio =  new BigDecimal("40");//this.BDmanagment.verPrecio(codigo);
+          String idProd = data.toString(); 
+          
+         
           
            //si ingresa un codigo el usuario
           if (!info.equals("")) {
-              String descripcion = "este es una desc";//this.BDmanagment.verNombreProductoPorCodigo(codigo);
+              String descripcion = AD.getNombreProd(idProd);
+              String precio =   AD.getPrecioProd(idProd);
               model.setValueAt(descripcion, row,  1);
               model.setValueAt(precio, row, 2);///IMPORTANTE ESTE ORDEN
               

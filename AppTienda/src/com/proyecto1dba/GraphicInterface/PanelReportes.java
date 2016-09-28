@@ -1028,6 +1028,10 @@ public class PanelReportes extends javax.swing.JPanel {
       getSelectedDate().getTime()));
       jLabelProducto.setText(jTextField1.getText());
       jLabelMonto1.setText(monto);
+      if (monto == "null"){
+          jLabelMonto1.setText("0");
+      }
+      
       jDialog2.setVisible(false);
       showResult(3);
       

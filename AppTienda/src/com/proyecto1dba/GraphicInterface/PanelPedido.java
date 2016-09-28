@@ -63,6 +63,13 @@ public class PanelPedido extends javax.swing.JPanel {
     PanelPedido() {
         initComponents();
         AD = new AcessData();
+        
+        
+         ArrayList<String> tipoPred = AD.getRestaurant();
+             this.jComboBox1.removeAllItems();
+        for (String tipo : tipoPred) {            
+            this.jComboBox1.addItem(tipo);
+        } 
     }
 
     public void refreshFocus() {
@@ -175,6 +182,9 @@ public class PanelPedido extends javax.swing.JPanel {
         jFormattedTextField_Cliente.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jFormattedTextField_Cliente.setAlignmentX(0.0F);
         jFormattedTextField_Cliente.setAlignmentY(0.0F);
+        jFormattedTextField_Cliente.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jFormattedTextField_Cliente.setEnabled(false);
+        jFormattedTextField_Cliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jFormattedTextField_Cliente.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jLayeredPane1.setLayer(jFormattedTextField_Cliente, javax.swing.JLayeredPane.DRAG_LAYER);
         jLayeredPane1.add(jFormattedTextField_Cliente);
@@ -260,14 +270,14 @@ public class PanelPedido extends javax.swing.JPanel {
         });
         jLayeredPane1.setLayer(jComboBox1, javax.swing.JLayeredPane.MODAL_LAYER);
         jLayeredPane1.add(jComboBox1);
-        jComboBox1.setBounds(656, 26, 80, 20);
+        jComboBox1.setBounds(610, 26, 130, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Restaurante:");
         jLayeredPane1.setLayer(jLabel6, javax.swing.JLayeredPane.MODAL_LAYER);
         jLayeredPane1.add(jLabel6);
-        jLabel6.setBounds(580, 30, 70, 15);
+        jLabel6.setBounds(540, 30, 70, 15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -432,7 +442,14 @@ public class PanelPedido extends javax.swing.JPanel {
         if (revisarProductosFactura() & revisarCliente()) {
 
             AD.CrearPedido((jComboBox1.getSelectedIndex()+1)+"", "1", 
-                   idCliente, getListPed());
+                  idCliente, getListPed());
+            
+            JOptionPane.showMessageDialog(
+                    null,
+                    "El Pedido se realizó correctamente",
+                    "Hacer Pedido", JOptionPane.PLAIN_MESSAGE);
+            
+            clean();
 
         }
     }//GEN-LAST:event_saveBttMouseClicked
@@ -665,6 +682,23 @@ public class PanelPedido extends javax.swing.JPanel {
 
         }
         return result;
+    }
+
+    private void clean() {
+       jFormattedTextField_Cliente.setText("");
+       MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
+       int numFilas  = model.getRowCount();
+        for (int i = 0; i < numFilas; i++) {
+            System.out.println(i);
+            model.removeRow(0); 
+            
+        }
+        model.addRow(1);
+        jTable_Factura.changeSelection(0, 0, false, false);
+        jTable_Factura.revalidate();
+        jTable_Factura.repaint();
+        jTable_Factura.requestFocus();
+      
     }
 
 }

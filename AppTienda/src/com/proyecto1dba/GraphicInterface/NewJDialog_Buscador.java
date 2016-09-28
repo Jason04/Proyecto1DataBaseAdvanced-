@@ -26,6 +26,7 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
      */
     private String idFactura;
     private String Cliente;
+    private String idCliente;
     private String idProducto;
     private String Categoria;
     private String nombreProducto;
@@ -133,6 +134,8 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
                     getSelectedRow(), 0).toString()
                      +" "+jTable_Generica.getValueAt(this.jTable_Generica.
                     getSelectedRow(), 1).toString());
+            setidCliente(jTable_Generica.getValueAt(this.jTable_Generica.
+                    getSelectedRow(), 3).toString());
             
         } catch (Exception e) {
         }
@@ -217,7 +220,7 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
         
         ArrayList<ArrayList<String>> data = AD.getPersonas();
        
-       String[] columnNames = {"Nombre","Apellido","Cantón"};
+       String[] columnNames = {"Nombre","Apellido","Cantón", "Número"};
         this.jTable_Generica.setModel(new MyTableModel_Generic(columnNames, data));
         //Crea el ordenador para la tabla generica
         TableRowSorter<TableModel> ordenador = new TableRowSorter<TableModel>(this.jTable_Generica.getModel());
@@ -241,12 +244,22 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
         setVisible(true);
         return Cliente;
     }
+    
+     public String getidCliente() {
+       // setVisible(true);
+        return idCliente;
+    }
 
     /**
      * @param Cliente the Cliente to set
      */
-    public void setCliente(String Cliente) {
-        this.Cliente = Cliente;
+    public void setCliente(String nombre) {
+        this.Cliente = nombre;
+        
+    }
+     public void setidCliente(String id) {
+        this.idCliente = id;
+        
     }
 
     public void setIdFactura(String idFactura) {

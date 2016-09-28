@@ -139,8 +139,25 @@ public class AcessData implements AccessDataInteface {
         columnas_tabla.add("nombre");
         columnas_tabla.add("apellido1");
         columnas_tabla.add("canton");
-        ArrayList<ArrayList<String>> result = restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/listaPersonas", columnas_tabla);
+        columnas_tabla.add("idPersona");
+        ArrayList<ArrayList<String>> result = 
+                restfulConnection.
+             getRESTful("https://sanjose-onlivecr.rhcloud.com/listaPersonas",
+                     columnas_tabla);
         return result;
+    }
+    
+    public String CrearPedido(String idRestaurante,String idEmpleado,
+            String idCliente, String listProd ){
+        System.out.println("https://sanjose-onlivecr.rhcloud.com/"
+                + "agregarPedido?listaProductos='"
+                +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
+                "&idPersona="+idCliente);
+        
+        return restfulConnection.postRESTful( "https://sanjose-onlivecr.rhcloud.com/"
+                + "agregarPedido?listaProductos='"
+                +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
+                "&idPersona="+idCliente, "");    
     }
 
 }

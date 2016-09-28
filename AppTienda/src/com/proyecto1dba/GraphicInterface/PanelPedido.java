@@ -21,54 +21,55 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 
-
 /**
  *
  * @author Jason Salazar
  */
 public class PanelPedido extends javax.swing.JPanel {
-DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
+
+    DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     public static final int FACTURACION_CALL = 0;
-    public static final int DEVOLUCION_CALL  = 1;
-    public static final int CREDITO_CALL     = 2;
-    public static final int APARTADO_CALL    = 3;
-    public static final int MOD_FACT_CALL    = 4;
-    public static final int MOD_DEV_CALL     = 5;
-    public static final int MOD_CRED_CALL    = 6;
-    public static final int MOD_APART_CALL   = 7;
-    
-    public static final String CONCEPT_FACTURA ="Cancelada";
-    public static final String CONCEPT_APARTADO ="Apartado";
-    public static final String CONCEPT_CREDITO= "Credito";
-    public static final String CONCEPT_DEVOLUCION="Devolucion";
-    public static final String DETALLE_FACT= "Fact Num ";
-    public static final String DETALLE_APART="Apartado Num Fact ";
-    public static final String DETALLE_CRED="Credito Num Fact ";
+    public static final int DEVOLUCION_CALL = 1;
+    public static final int CREDITO_CALL = 2;
+    public static final int APARTADO_CALL = 3;
+    public static final int MOD_FACT_CALL = 4;
+    public static final int MOD_DEV_CALL = 5;
+    public static final int MOD_CRED_CALL = 6;
+    public static final int MOD_APART_CALL = 7;
+
+    public static final String CONCEPT_FACTURA = "Cancelada";
+    public static final String CONCEPT_APARTADO = "Apartado";
+    public static final String CONCEPT_CREDITO = "Credito";
+    public static final String CONCEPT_DEVOLUCION = "Devolucion";
+    public static final String DETALLE_FACT = "Fact Num ";
+    public static final String DETALLE_APART = "Apartado Num Fact ";
+    public static final String DETALLE_CRED = "Credito Num Fact ";
 
     public int _callType;
     AcessData AD;
-    
+    private String idCliente;
+
     /**
      * Creates new form NewJPanel
+     *
      * @param pCallType
      */
     public PanelPedido(int pCallType) {
         _callType = pCallType;
         initComponents();
-        
+
     }
 
     PanelPedido() {
         initComponents();
         AD = new AcessData();
     }
-    
-    public void refreshFocus(){
+
+    public void refreshFocus() {
         jTable_Factura.requestFocusInWindow();
 
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -251,7 +252,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         jLayeredPane1.add(BuscarP);
         BuscarP.setBounds(10, 70, 40, 40);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San José", "Cartago", "Heredia" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San José", "Heredia", "Cartago" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -287,7 +288,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         int row = jTable_Factura.getSelectedRow();
 //        ///Si se esta escribiendo en la celda para el editor y luego elimina la
 //        // fila
-       if (!model.data.isEmpty()) {
+        if (!model.data.isEmpty()) {
             if (jTable_Factura.isEditing()) {
                 jTable_Factura.getCellEditor().cancelCellEditing();
                 jTable_Factura.revalidate();
@@ -298,29 +299,30 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
             String subTotal = model.getValueAt(row, 2).toString();
             if (subTotal != "") {
                 //Elimina un producto ya ingresado y actualiza el total
-               
+
                 model.removeRow(row);
 
-
-                jTable_Factura.changeSelection(row-1,0,false, false);
+                jTable_Factura.changeSelection(row - 1, 0, false, false);
                 jTable_Factura.revalidate();
                 jTable_Factura.repaint();
                 jTable_Factura.requestFocus();
-                
+
             } else { //Si es vacio el subtotal significa que no tiene que actualizar
                 // el subtotal
                 model.removeRow(row);
-                jTable_Factura.changeSelection(row-1,0,false, false);
+                jTable_Factura.changeSelection(row - 1, 0, false, false);
                 jTable_Factura.revalidate();
                 jTable_Factura.repaint();
                 jTable_Factura.requestFocus();
 
             }
         }
-        if (model.data.isEmpty()){
+        if (model.data.isEmpty()) {
             model.addRow(1);
         }
-    }    /**
+    }
+
+    /**
      * Este metodo permite que se actualice el campo del total y la rebaja
      * cuando se inserta un descuento unitario en la tabla Factura.
      *
@@ -335,7 +337,6 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         }
 
     }//GEN-LAST:event_jTable_FacturaKeyPressed
-    
 
     /**
      * Este metodo permite que vuelva a la tabla y seleciones la fila donde
@@ -350,12 +351,11 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
                 + cantidad, jTable_Factura.getSelectedColumn(), false, false);
         jTable_Factura.requestFocus();
     }
-   
 
-    
-    private boolean factSave(){
+    private boolean factSave() {
         return this.guardarFactura(CONCEPT_FACTURA);
     }
+
     /**
      * Se encarga de llamar el jdialog para terminar de realizar la factura.
      */
@@ -399,39 +399,42 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
 //        
 
     }
-          
+
 
     private void trashBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBttMouseClicked
         this.eliminarFila();
     }//GEN-LAST:event_trashBttMouseClicked
-    private boolean revisarProductosFactura(){
-        if(this.jTable_Factura.getValueAt(0,0).equals("")){
+    private boolean revisarProductosFactura() {
+        if (this.jTable_Factura.getValueAt(0, 0).equals("")) {
             JOptionPane.showMessageDialog(
-                        null,
-                        "Por favor ingrese al menos un producto en el pedido",
-                        "No se puede crear pedidos que no tengan productos", JOptionPane.ERROR_MESSAGE);
-                  
-            
+                    null,
+                    "Por favor ingrese al menos un producto en el pedido",
+                    "No se puede crear pedidos que no tengan productos", JOptionPane.ERROR_MESSAGE);
+
             return false;
         }
         return true;
     }
-    private boolean revisarCliente(){
-        if(jFormattedTextField_Cliente.getText().equals("")){
+
+    private boolean revisarCliente() {
+        if (jFormattedTextField_Cliente.getText().equals("")) {
             JOptionPane.showMessageDialog(
-                        null,
-                        "Por favor ingrese un cliente",
-                        "Cliente no valido", JOptionPane.ERROR_MESSAGE);
-                  
-            
+                    null,
+                    "Por favor ingrese un cliente",
+                    "Cliente no valido", JOptionPane.ERROR_MESSAGE);
+
             return false;
         }
         return true;
     }
-   
+
     private void saveBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveBttMouseClicked
-       if(revisarProductosFactura() & revisarCliente() ){
-       }
+        if (revisarProductosFactura() & revisarCliente()) {
+
+            AD.CrearPedido((jComboBox1.getSelectedIndex()+1)+"", "1", 
+                   idCliente, getListPed());
+
+        }
     }//GEN-LAST:event_saveBttMouseClicked
 
     private void trashBttMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trashBttMouseEntered
@@ -451,20 +454,21 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_saveBttMouseExited
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-       NewJDialog_Buscador buscador = new NewJDialog_Buscador();
+        NewJDialog_Buscador buscador = new NewJDialog_Buscador();
         buscador.actualizaTablaParaClientes();
-        String cliente = buscador.getCliente();
-        this.jFormattedTextField_Cliente.setText(cliente);
-        this.setFocusTablaFact(0);  
-       
+        String nombreCliente = buscador.getCliente();
+        idCliente = buscador.getidCliente();
+        this.jFormattedTextField_Cliente.setText(nombreCliente);        
+        this.setFocusTablaFact(0);
+
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void passSellerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passSellerActionPerformed
-        
+
     }//GEN-LAST:event_passSellerActionPerformed
 
     private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
-        
+
     }//GEN-LAST:event_formPropertyChange
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -476,7 +480,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_jLayeredPane1KeyPressed
 
     private void backgroundComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_backgroundComponentHidden
-        
+
     }//GEN-LAST:event_backgroundComponentHidden
 
     private void jFormattedTextField_totalFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField_totalFactActionPerformed
@@ -484,14 +488,14 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_jFormattedTextField_totalFactActionPerformed
 
     private void BuscarPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseClicked
-       if (jTable_Factura.isEditing()) {
+        if (jTable_Factura.isEditing()) {
             jTable_Factura.getCellEditor().cancelCellEditing();
 
         }
         NewJDialog_Buscador buscador = new NewJDialog_Buscador();
         buscador.actualizaTablaParaInventario();
         String id = buscador.getIdProducto();
-        if(id==null){
+        if (id == null) {
             return;
         }
         MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
@@ -502,7 +506,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_BuscarPMouseClicked
 
     private void BuscarPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseEntered
-         BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBttOvr.png")));
+        BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBttOvr.png")));
     }//GEN-LAST:event_BuscarPMouseEntered
 
     private void BuscarPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseExited
@@ -517,31 +521,30 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
      *
      * @return
      */
-//    private String[][] obtenerInfoTablaFact() {
-//        MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
-//        int filas = model.getRowCount();
-//        String[][] infoTablaFactura = new String[filas][5];
-//        for (int i = 0; i < filas; i++) {
-//            for (int j = 0; j < 5; j++) {
-//                if (model.getValueAt(i, j) != null) {
-//                    String om = model.getValueAt(i, j).toString();
-//                    if (om.trim().length() != 0) {
-//                        infoTablaFactura[i][j] = om;
-//                    }
-//                }
-//            }
-//        }
-//        return infoTablaFactura;
-//    }
-    
-    private void hotKeyPressEvt(java.awt.event.KeyEvent evt){
-        if (evt.getKeyCode() == evt.VK_F4){
+    private String[][] obtenerInfoTablaFact() {
+        MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
+        int filas = model.getRowCount();
+        String[][] infoTablaFactura = new String[filas][3];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (model.getValueAt(i, j) != null) {
+                    String om = model.getValueAt(i, j).toString();
+                    if (om.trim().length() != 0) {
+                        infoTablaFactura[i][j] = om;
+                    }
+                }
+            }
+        }
+        return infoTablaFactura;
+    }
+
+    private void hotKeyPressEvt(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == evt.VK_F4) {
             //printPrincipalCall();
-        } else if (evt.getKeyCode() == evt.VK_F2){
+        } else if (evt.getKeyCode() == evt.VK_F2) {
             //justSavePrincipalCall();
         }
     }
-
 
     /**
      * Este metodo permite personalizar la tabla de crear Factura
@@ -550,13 +553,13 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         String[] columnNames = {"Cod. Articulo", "Articulo", "Precio"};
         List<Object[]> data = new ArrayList<Object[]>();
 //        //Agrega el modelo a la factura
-        MyTableModel_FACT model = new MyTableModel_FACT(columnNames, data,true);
+        MyTableModel_FACT model = new MyTableModel_FACT(columnNames, data, true);
 //        
         this.jTable_Factura.setModel(model);
 //        //Agrega 1 filas
         model.addRow(1);
-       jTable_Factura.changeSelection(0, 0, false, false);
-       jTable_Factura.requestFocus();        
+        jTable_Factura.changeSelection(0, 0, false, false);
+        jTable_Factura.requestFocus();
         this.jFormattedTextField_Total.setValue(BigDecimal.ZERO);
     }
 
@@ -590,13 +593,10 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
 
         }
         this.crearFactura(concepto);
-       // this.guardarProductosFactura();
+        // this.guardarProductosFactura();
         return true;
     }
 
-    
-     
-    
 //    public String fill(int length, String with) {
 //        StringBuilder sb = new StringBuilder(length);
 //        while (sb.length() < length) {
@@ -614,24 +614,19 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
 //        return result.toString();
 //
 //    }
-
-    
-
-    
-
     public void agregarListenerRenders() {
         jTable_Factura.requestFocus();
         jTable_Factura.changeSelection(0, 0, false, false);
 
-       this.jTable_Factura.getModel().addTableModelListener(
+        this.jTable_Factura.getModel().addTableModelListener(
                 new MyTableModelListener_FACT(this.jTable_Factura, "",
                         this.jFormattedTextField_Total));
 
-       this.cargarSeleccionadorProductos();
+        this.cargarSeleccionadorProductos();
 
         //Costumisando Precio (Solo van a permitir numeros)
-       DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-       rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
 //
         this.jTable_Factura.getColumnModel().getColumn(2).
                 setCellRenderer(new CurrencyRender());
@@ -649,6 +644,27 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
                 setCellEditor(new SeleccionadorEditor(
                         idproductos, jTable_Factura));
 
+    }
+
+    private String getListPed() {
+        MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
+        int filas = model.getRowCount();
+        String result = "";
+        for (int i = 0; i < filas; i++) {
+            if (model.getValueAt(i, 0) != null) {                
+                String om = model.getValueAt(i, 0).toString();
+                if (om.trim().length() != 0) {
+                    if(result.length()>0){
+                         result = result+","+om;
+                    }
+                    else{
+                        result = om;
+                    }
+                }
+            }
+
+        }
+        return result;
     }
 
 }

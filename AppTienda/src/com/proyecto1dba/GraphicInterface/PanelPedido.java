@@ -183,6 +183,8 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         saveBtt = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
         BuscarP = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         jDialog_CrearProducto.setTitle("Crear Producto");
         jDialog_CrearProducto.setMinimumSize(new java.awt.Dimension(400, 230));
@@ -928,7 +930,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
             }
         });
         jLayeredPane1.add(jLabel22);
-        jLabel22.setBounds(475, 25, 20, 20);
+        jLabel22.setBounds(410, 26, 20, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -949,13 +951,11 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Cliente:");
         jLayeredPane1.add(jLabel16);
-        jLabel16.setBounds(172, 21, 50, 30);
+        jLabel16.setBounds(110, 20, 50, 30);
 
         jFormattedTextField_Cliente.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jFormattedTextField_Cliente.setText("Cliente Generico");
         jFormattedTextField_Cliente.setAlignmentX(0.0F);
         jFormattedTextField_Cliente.setAlignmentY(0.0F);
-        jFormattedTextField_Cliente.setCaretPosition(0);
         jFormattedTextField_Cliente.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jFormattedTextField_Cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -979,7 +979,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         });
         jLayeredPane1.setLayer(jFormattedTextField_Cliente, javax.swing.JLayeredPane.DRAG_LAYER);
         jLayeredPane1.add(jFormattedTextField_Cliente);
-        jFormattedTextField_Cliente.setBounds(220, 26, 250, 20);
+        jFormattedTextField_Cliente.setBounds(150, 26, 250, 20);
 
         trashBtt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/trashBtt.png"))); // NOI18N
         trashBtt.setToolTipText("Eliminar fila seleccionada");
@@ -1052,6 +1052,23 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
         jLayeredPane1.setLayer(BuscarP, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(BuscarP);
         BuscarP.setBounds(10, 70, 40, 40);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San José", "Cartago", "Heredia" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.setLayer(jComboBox1, javax.swing.JLayeredPane.MODAL_LAYER);
+        jLayeredPane1.add(jComboBox1);
+        jComboBox1.setBounds(656, 26, 80, 20);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Restaurante:");
+        jLayeredPane1.setLayer(jLabel6, javax.swing.JLayeredPane.MODAL_LAYER);
+        jLayeredPane1.add(jLabel6);
+        jLabel6.setBounds(580, 30, 70, 15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1704,7 +1721,11 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_saveBttMouseExited
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-        
+       NewJDialog_Buscador buscador = new NewJDialog_Buscador();
+        buscador.actualizaTablaParaClientes();
+        String cliente = buscador.getCliente();
+        this.jFormattedTextField_Cliente.setText(cliente);
+        this.setFocusTablaFact(0);  
        
     }//GEN-LAST:event_jLabel22MouseClicked
 
@@ -2163,7 +2184,21 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     }//GEN-LAST:event_jFormattedTextField_ClienteMouseClicked
 
     private void BuscarPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseClicked
-        // TODO add your handling code here:
+       if (jTable_Factura.isEditing()) {
+            jTable_Factura.getCellEditor().cancelCellEditing();
+
+        }
+        NewJDialog_Buscador buscador = new NewJDialog_Buscador();
+        buscador.actualizaTablaParaInventario();
+        String id = buscador.getIdProducto();
+        if(id==null){
+            return;
+        }
+        MyTableModel_FACT model = (MyTableModel_FACT) jTable_Factura.getModel();
+        int row = this.jTable_Factura.getSelectedRow();
+        model.setValueAt(id, row, 0);
+        model.addRow(1);
+        this.setFocusTablaFact(1);
     }//GEN-LAST:event_BuscarPMouseClicked
 
     private void BuscarPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseEntered
@@ -2173,6 +2208,10 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     private void BuscarPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseExited
         BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBtt.png")));
     }//GEN-LAST:event_BuscarPMouseExited
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
     /**
      * Este metodo devuelve toda la informacion de la tabla de crear factura
      *
@@ -2208,27 +2247,17 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
      * Este metodo permite personalizar la tabla de crear Factura
      */
     public void personalizarTablaFactura() {
-//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-//        Date date = new Date();
-//        this.jLabel_Fecha.setText(dateFormat.format(date));
-//        String[] columnNames = {"Cod. Articulo", "Articulo",
-//            "Cantidad", "Precio.Unit",
-//            "Sub-Total"};
-//        List<Object[]> data = new ArrayList<Object[]>();
+        String[] columnNames = {"Cod. Articulo", "Articulo", "Precio"};
+        List<Object[]> data = new ArrayList<Object[]>();
 //        //Agrega el modelo a la factura
-//        MyTableModel_FACT model = new MyTableModel_FACT(columnNames, data,true);
+        MyTableModel_FACT model = new MyTableModel_FACT(columnNames, data,true);
 //        
-//        this.jTable_Factura.setModel(model);
+        this.jTable_Factura.setModel(model);
 //        //Agrega 1 filas
-//        model.addRow(1);
-//          
-//        
-//        
-//        this.jFormattedTextField_SubTotal.setValue(BigDecimal.ZERO);
-//        this.jFormattedTextField_Total.setValue(BigDecimal.ZERO);
-//        this.jFormattedTextField_DescuentoTotal.setValue(BigDecimal.ZERO);
-//       
-
+        model.addRow(1);
+       jTable_Factura.changeSelection(0, 0, false, false);
+       jTable_Factura.requestFocus();        
+        this.jFormattedTextField_Total.setValue(BigDecimal.ZERO);
     }
 
     /**
@@ -2268,6 +2297,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     javax.swing.JButton jButton_CrearProducto;
     javax.swing.JButton jButton_IngresarDescuento;
     javax.swing.JButton jButton_aceptarVuelto;
+    javax.swing.JComboBox<String> jComboBox1;
     javax.swing.JDialog jDialog_BuscarProductoPorCod;
     javax.swing.JDialog jDialog_CrearCliente;
     javax.swing.JDialog jDialog_CrearProducto;
@@ -2315,6 +2345,7 @@ DateFormat dateFormatIng = new SimpleDateFormat("yyyy/MM/dd");
     javax.swing.JLabel jLabel3;
     javax.swing.JLabel jLabel4;
     javax.swing.JLabel jLabel5;
+    javax.swing.JLabel jLabel6;
     javax.swing.JLabel jLabel9;
     javax.swing.JLabel jLabel_Cantidad;
     javax.swing.JLabel jLabel_CodNoEncontrado;

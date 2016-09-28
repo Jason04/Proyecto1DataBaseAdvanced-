@@ -120,10 +120,20 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_AceptarBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AceptarBusquedaActionPerformed
+        
+                
         try {        
-            setIdProducto(jTable_Generica.getValueAt(this.jTable_Generica.getSelectedRow(), 0).toString());
-            setNombreProducto(jTable_Generica.getValueAt(this.jTable_Generica.getSelectedRow(), 1).toString());
-            setPrecioProducto(jTable_Generica.getValueAt(this.jTable_Generica.getSelectedRow(), 2).toString());
+            setIdProducto(jTable_Generica.getValueAt(this.jTable_Generica.
+                    getSelectedRow(), 0).toString());
+            setNombreProducto(jTable_Generica.getValueAt(this.jTable_Generica.
+                    getSelectedRow(), 1).toString());
+            setPrecioProducto(jTable_Generica.getValueAt(this.jTable_Generica.
+                    getSelectedRow(), 2).toString());
+            setCliente(jTable_Generica.getValueAt(this.jTable_Generica.
+                    getSelectedRow(), 0).toString()
+                     +" "+jTable_Generica.getValueAt(this.jTable_Generica.
+                    getSelectedRow(), 1).toString());
+            
         } catch (Exception e) {
         }
         this.dispose();
@@ -204,23 +214,23 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
     }
 
     void actualizaTablaParaClientes() {
-//        Direct_Control_BD AdminBD = Direct_Control_BD.getInstance();
-//        AdminBD.consultarClientes();
-//        String[] columnNames = AdminBD.getColumnNames();
-//        Object[][] data = AdminBD.getData();
-//        this.jTable_Generica.setModel(new MyTableModel_Generic(columnNames, data));
-//        //Crea el ordenador para la tabla generica
-//        TableRowSorter<TableModel> ordenador = new TableRowSorter<TableModel>(this.jTable_Generica.getModel());
-//        this.jTable_Generica.setRowSorter(ordenador);
-//        Vector<RowSorter.SortKey> qq = new Vector<RowSorter.SortKey>();
-//        qq.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
-//        ordenador.setSortKeys(qq);
-//        jTable_Generica.requestFocus();
-//        jTable_Generica.changeSelection(0, 0, false, false);
+        
+        ArrayList<ArrayList<String>> data = AD.getPersonas();
+       
+       String[] columnNames = {"Nombre","Apellido","Cantón"};
+        this.jTable_Generica.setModel(new MyTableModel_Generic(columnNames, data));
+        //Crea el ordenador para la tabla generica
+        TableRowSorter<TableModel> ordenador = new TableRowSorter<TableModel>(this.jTable_Generica.getModel());
+        this.jTable_Generica.setRowSorter(ordenador);
+        Vector<RowSorter.SortKey> qq = new Vector<RowSorter.SortKey>();
+        qq.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));
+        ordenador.setSortKeys(qq);
+        jTable_Generica.requestFocus();
+        jTable_Generica.changeSelection(0, 0, false, false);
 //        /**
 //         * Agrega el listener al JtextField del buscador *
 //         */
-//        this.TextField_Buscador.getDocument().addDocumentListener(new ListenerBuscador(this.TextField_Buscador, ordenador));
+        this.TextField_Buscador.getDocument().addDocumentListener(new ListenerBuscador(this.TextField_Buscador, ordenador));
 
     }
 

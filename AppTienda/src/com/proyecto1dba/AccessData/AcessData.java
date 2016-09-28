@@ -61,6 +61,7 @@ public class AcessData implements AccessDataInteface {
     
     }
     
+   @Override
     public String ventaPorDia(String date){
     String result = "";
     
@@ -73,8 +74,6 @@ public class AcessData implements AccessDataInteface {
         result = monto.get(0).get(0);
         
     return result;
-        
-        
     }
     
     public ArrayList<ArrayList<String>> getProductos(){
@@ -116,5 +115,18 @@ public class AcessData implements AccessDataInteface {
         
         return result;
     }
+    
+    public ArrayList<ArrayList<String>> getPersonas(){
+       
+        ArrayList<String> columnas_tabla = new ArrayList<>();
+        columnas_tabla.add("nombre"); 
+        columnas_tabla.add("apellido1");
+        columnas_tabla.add("canton");
+        ArrayList<ArrayList<String>> result = restfulConnection.getRESTful
+        ("https://sanjose-onlivecr.rhcloud.com/listaPersonas"
+                , columnas_tabla);  
+        return result;
+    }
+    
     
 }

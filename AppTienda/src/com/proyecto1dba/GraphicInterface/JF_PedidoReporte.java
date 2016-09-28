@@ -32,8 +32,10 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     private void startComponents(){
         _activePanel = PED;
         
+       
       
         _panPed = new PanelPedido();
+        _panPed.personalizarTablaFactura();
         _panPed.setSize(760, 400);
         _panPed.setLocation(0, 45);
         jLayeredPane1.add(_panPed, 0);
@@ -46,6 +48,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         jLayeredPane1.add(_panRep, 0);
         _panRep.setVisible(false);
         _panRep.setEnabled(false);
+        
     }
     
     private  void changeTab(){

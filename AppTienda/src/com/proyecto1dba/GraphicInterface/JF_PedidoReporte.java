@@ -36,6 +36,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
       
         _panPed = new PanelPedido();
         _panPed.personalizarTablaFactura();
+        _panPed.agregarListenerRenders();
         _panPed.setSize(760, 400);
         _panPed.setLocation(0, 45);
         jLayeredPane1.add(_panPed, 0);

@@ -53,6 +53,7 @@ class MyTableModel_FACT extends AbstractTableModel {
     }
     @Override
     public String getColumnName(int col) {
+        
             return columnNames[col];
         }
 

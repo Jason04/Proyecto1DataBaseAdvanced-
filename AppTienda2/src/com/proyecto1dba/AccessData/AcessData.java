@@ -171,6 +171,14 @@ public class AcessData implements AccessDataInteface {
                 +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
                 "&idPersona="+idCliente, "");    
     }
+    public String GuardarPedidoCentral(String idRestaurante,String idEmpleado,
+            String idCliente, String listProd ){
+        
+        return restfulConnection.postRESTful( "https://sanjose-onlivecr.rhcloud.com/"
+                + "agregarPedido?listaProductos='"
+                +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
+                "&idPersona="+idCliente, "");    
+    }
 
     public String getNombreProd(String idProd) {
         ArrayList<String> columnas_tabla = new ArrayList<>();

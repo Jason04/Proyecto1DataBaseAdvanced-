@@ -64,12 +64,6 @@ public class PanelPedido extends javax.swing.JPanel {
         initComponents();
         AD = new AcessData();
         
-        
-         ArrayList<String> tipoPred = AD.getRestaurant();
-             this.jComboBox1.removeAllItems();
-        for (String tipo : tipoPred) {            
-            this.jComboBox1.addItem(tipo);
-        } 
     }
 
     public void refreshFocus() {
@@ -98,8 +92,8 @@ public class PanelPedido extends javax.swing.JPanel {
         saveBtt = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
         BuscarP = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
@@ -262,22 +256,19 @@ public class PanelPedido extends javax.swing.JPanel {
         jLayeredPane1.add(BuscarP);
         BuscarP.setBounds(10, 70, 40, 40);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "San José", "Heredia", "Cartago" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jLayeredPane1.setLayer(jComboBox1, javax.swing.JLayeredPane.MODAL_LAYER);
-        jLayeredPane1.add(jComboBox1);
-        jComboBox1.setBounds(610, 26, 130, 20);
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Restaurante:");
         jLayeredPane1.setLayer(jLabel6, javax.swing.JLayeredPane.MODAL_LAYER);
         jLayeredPane1.add(jLabel6);
         jLabel6.setBounds(540, 30, 70, 15);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("El Buen Sabor #2");
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.MODAL_LAYER);
+        jLayeredPane1.add(jLabel1);
+        jLabel1.setBounds(612, 30, 100, 14);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -459,7 +450,10 @@ public class PanelPedido extends javax.swing.JPanel {
     private void saveBttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveBttMouseClicked
         if (revisarProductosFactura() & revisarCliente()) {
 
-            AD.CrearPedido((jComboBox1.getSelectedIndex()+1)+"", "1", 
+            AD.CrearPedido("2", "1", 
+                  idCliente, getListPed());
+            
+            AD.GuardarPedidoCentral("2", "1", 
                   idCliente, getListPed());
             
             JOptionPane.showMessageDialog(
@@ -547,10 +541,6 @@ public class PanelPedido extends javax.swing.JPanel {
     private void BuscarPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarPMouseExited
         BuscarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/searchBtt.png")));
     }//GEN-LAST:event_BuscarPMouseExited
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
     /**
      * Este metodo devuelve toda la informacion de la tabla de crear factura
      *
@@ -602,9 +592,9 @@ public class PanelPedido extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JLabel BuscarP;
     javax.swing.JLabel background;
-    javax.swing.JComboBox<String> jComboBox1;
     javax.swing.JFormattedTextField jFormattedTextField_Cliente;
     javax.swing.JFormattedTextField jFormattedTextField_Total;
+    javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel12;
     javax.swing.JLabel jLabel16;
     javax.swing.JLabel jLabel22;

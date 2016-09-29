@@ -23,7 +23,7 @@ public class AcessData implements AccessDataInteface {
         ArrayList<String> result = new ArrayList<>();
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("nombre");
-        ArrayList<ArrayList<String>> cantones = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/listaCantones", columnas_tabla);
+        ArrayList<ArrayList<String>> cantones = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/listaCantones", columnas_tabla);
 
         for (ArrayList<String> data : cantones) {
             result.add(data.get(0));
@@ -37,7 +37,7 @@ public class AcessData implements AccessDataInteface {
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("Nombre");
         ArrayList<ArrayList<String>> restaurant = restfulConnection.
-                getRESTful("https://cartago-onlivecr.rhcloud.com/listaRestaurantes",
+                getRESTful("https://heredia-onlivecr.rhcloud.com/listaRestaurantes",
                 columnas_tabla);
 
         for (ArrayList<String> data : restaurant) {
@@ -51,7 +51,7 @@ public class AcessData implements AccessDataInteface {
         ArrayList<String> result = new ArrayList<>();
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("Nombre");
-        ArrayList<ArrayList<String>> tiposProd = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/listaTipoProducto",
+        ArrayList<ArrayList<String>> tiposProd = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/listaTipoProducto",
                 columnas_tabla);
 
         for (ArrayList<String> data : tiposProd) {
@@ -66,7 +66,7 @@ public class AcessData implements AccessDataInteface {
         String result = "";
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("CANTIDAD");
-        ArrayList<ArrayList<String>> cantidad = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/ordenesxcanton?idCanton="
+        ArrayList<ArrayList<String>> cantidad = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/ordenesxcanton?idCanton="
                 + numCanton, columnas_tabla);
 
         result = cantidad.get(0).get(0);
@@ -81,7 +81,7 @@ public class AcessData implements AccessDataInteface {
 
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("MONTO");
-        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/totalxdia?date='"
+        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/totalxdia?date='"
                 + date + "'", columnas_tabla);
         result = monto.get(0).get(0);
 
@@ -94,7 +94,7 @@ public class AcessData implements AccessDataInteface {
         columnas_tabla.add("idProducto");
         columnas_tabla.add("Descripcion");
         columnas_tabla.add("precio");
-        ArrayList<ArrayList<String>> result = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/listaProductos", columnas_tabla);
+        ArrayList<ArrayList<String>> result = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/listaProductos", columnas_tabla);
 
         return result;
 
@@ -106,7 +106,7 @@ public class AcessData implements AccessDataInteface {
         columnas_tabla.add("idProducto");
 
         ArrayList<ArrayList<String>> ids = restfulConnection.
-                getRESTful("https://cartago-onlivecr.rhcloud.com/listaProductos"
+                getRESTful("https://heredia-onlivecr.rhcloud.com/listaProductos"
                         , columnas_tabla);
 
         String[] result = new String[ids.size()];
@@ -127,7 +127,7 @@ public class AcessData implements AccessDataInteface {
         String result = "";
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("MONTO");
-        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/totalxdiayproducto?date='"
+        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/totalxdiayproducto?date='"
                 + date + "'&idProducto=" + idProd, columnas_tabla);
 
         result = monto.get(0).get(0);
@@ -141,7 +141,7 @@ public class AcessData implements AccessDataInteface {
         String result = "";
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("CANTIDAD");
-        ArrayList<ArrayList<String>> cantidad = restfulConnection.getRESTful("https://cartago-onlivecr.rhcloud.com/ordenesxtipoProducto?idProducto="
+        ArrayList<ArrayList<String>> cantidad = restfulConnection.getRESTful("https://heredia-onlivecr.rhcloud.com/ordenesxtipoProducto?idProducto="
                 + tipo, columnas_tabla);
 
         result = cantidad.get(0).get(0);
@@ -158,7 +158,7 @@ public class AcessData implements AccessDataInteface {
         columnas_tabla.add("idPersona");
         ArrayList<ArrayList<String>> result = 
                 restfulConnection.
-             getRESTful("https://cartago-onlivecr.rhcloud.com/listaPersonas",
+             getRESTful("https://heredia-onlivecr.rhcloud.com/listaPersonas",
                      columnas_tabla);
         return result;
     }
@@ -166,7 +166,7 @@ public class AcessData implements AccessDataInteface {
     public String CrearPedido(String idRestaurante,String idEmpleado,
             String idCliente, String listProd ){
         
-        return restfulConnection.postRESTful( "https://cartago-onlivecr.rhcloud.com/"
+        return restfulConnection.postRESTful( "https://heredia-onlivecr.rhcloud.com/"
                 + "agregarPedido?listaProductos='"
                 +listProd+"'&idRestaurante="+idRestaurante+"&idEmpleado="+idEmpleado+
                 "&idPersona="+idCliente, "");    
@@ -178,7 +178,7 @@ public class AcessData implements AccessDataInteface {
 
         ArrayList<ArrayList<String>> result = 
                 restfulConnection.
-             getRESTful("https://cartago-onlivecr.rhcloud.com/"
+             getRESTful("https://heredia-onlivecr.rhcloud.com/"
                      + "infoProducto?idProducto="+ idProd,
                      columnas_tabla);
         return result.get(0).get(0);
@@ -191,7 +191,7 @@ public class AcessData implements AccessDataInteface {
 
         ArrayList<ArrayList<String>> result = 
                 restfulConnection.
-             getRESTful("https://cartago-onlivecr.rhcloud.com/"
+             getRESTful("https://heredia-onlivecr.rhcloud.com/"
                      + "infoProducto?idProducto="+ idProd,
                      columnas_tabla);
         

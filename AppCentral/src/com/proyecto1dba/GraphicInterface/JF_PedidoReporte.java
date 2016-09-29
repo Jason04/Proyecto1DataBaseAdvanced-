@@ -113,7 +113,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        System.out.println("hola");
+        
     }//GEN-LAST:event_jLabel1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

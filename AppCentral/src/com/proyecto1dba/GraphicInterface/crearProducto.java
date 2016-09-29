@@ -215,7 +215,7 @@ AcessData AD;
             String precio = jFormattedTextFieldPrecio.getText();
             String idTipoProd = (jComboBox1.getSelectedIndex()+1)+"";
             
-            AD.CrearProducto(idTipoProd,nombre,precio);
+            AD.CrearProducto(idTipoProd,nombre.replace(" ", "%20"),precio);
             
             dispose();
             

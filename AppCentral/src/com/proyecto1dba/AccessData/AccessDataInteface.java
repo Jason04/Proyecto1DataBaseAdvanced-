@@ -14,6 +14,6 @@ import java.util.ArrayList;
 public interface AccessDataInteface {
      public  String getOrdenesCanton(String numCanton);
      public  ArrayList<String> getCantonesClientes();
-      public String ventaPorDia(String date);
+    //  public String ventaPorDiaSitio(String date);
     
 }

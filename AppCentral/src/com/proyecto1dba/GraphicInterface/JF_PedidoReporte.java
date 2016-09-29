@@ -52,6 +52,7 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         bttPedido = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bkgr = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(810, 530));
@@ -86,6 +87,16 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
         jLayeredPane1.add(bkgr);
         bkgr.setBounds(0, 0, 800, 500);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com.proyecto1dba.Images/bttCrearProd.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.MODAL_LAYER);
+        jLayeredPane1.add(jLabel1);
+        jLabel1.setBounds(292, 7, 210, 40);
+
         getContentPane().add(jLayeredPane1);
         jLayeredPane1.setBounds(0, 0, 800, 500);
 
@@ -101,9 +112,14 @@ public class JF_PedidoReporte extends javax.swing.JFrame {
        // StartWindow.getInstance().enableMe();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        System.out.println("hola");
+    }//GEN-LAST:event_jLabel1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bkgr;
     private javax.swing.JLabel bttPedido;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLayeredPane jLayeredPane1;
     // End of variables declaration//GEN-END:variables

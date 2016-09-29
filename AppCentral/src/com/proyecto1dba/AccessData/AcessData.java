@@ -75,17 +75,24 @@ public class AcessData implements AccessDataInteface {
 
     }
 
-    @Override
-    public String ventaPorDia(String date) {
-        String result = "";
+    
+    public ArrayList<ArrayList<String>> ventaPorDiaSitio(String date) {
+        
 
         ArrayList<String> columnas_tabla = new ArrayList<>();
-        columnas_tabla.add("MONTO");
-        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/totalxdia?date='"
-                + date + "'", columnas_tabla);
-        result = monto.get(0).get(0);
+        
+       
+        columnas_tabla.add("SITIO1");
+        columnas_tabla.add("SITIO2");
+        columnas_tabla.add("SITIO3");
+              
+        
+        ArrayList<ArrayList<String>> montos =
+                restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/totalxdiaysitio?date='"
+                + date + "'&idProducto=1", columnas_tabla);
+        
 
-        return result;
+        return montos;
     }
 
     public ArrayList<ArrayList<String>> getProductos() {
@@ -123,25 +130,30 @@ public class AcessData implements AccessDataInteface {
 
     }
 
-    public String ventasProdDias(String date, String idProd) {
-        String result = "";
+    public ArrayList<ArrayList<String>> ventasProdDiasSitio(String date, String idProd) {
+        
         ArrayList<String> columnas_tabla = new ArrayList<>();
-        columnas_tabla.add("MONTO");
-        ArrayList<ArrayList<String>> monto = restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/totalxdiayproducto?date='"
+        columnas_tabla.add("SITIO1");
+        columnas_tabla.add("SITIO2");
+        columnas_tabla.add("SITIO3");
+        ArrayList<ArrayList<String>> monto =
+                restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/totalxdiaysitioytipo?date='"
                 + date + "'&idProducto=" + idProd, columnas_tabla);
 
-        result = monto.get(0).get(0);
+       
 
-        return result;
+        return monto;
 
     }
-
-    public String getCantOrdTipoProd(String tipo) {
+    
+    public String getCantOrdTipoProdSitio(String tipo, String sitio) {
 
         String result = "";
         ArrayList<String> columnas_tabla = new ArrayList<>();
         columnas_tabla.add("CANTIDAD");
-        ArrayList<ArrayList<String>> cantidad = restfulConnection.getRESTful("https://sanjose-onlivecr.rhcloud.com/ordenesxtipoProducto?idProducto="
+        ArrayList<ArrayList<String>> cantidad =
+                restfulConnection.
+                getRESTful("https://sanjose-onlivecr.rhcloud.com/ordenesxtipoProducto?idProducto="
                 + tipo, columnas_tabla);
 
         result = cantidad.get(0).get(0);
@@ -200,4 +212,6 @@ public class AcessData implements AccessDataInteface {
           
     }
 
+    
+   
 }

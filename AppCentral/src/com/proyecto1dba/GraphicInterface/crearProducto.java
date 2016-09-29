@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
+
 /**
  *
  * @author Jason
@@ -67,14 +68,18 @@ AcessData AD;
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(418, 578));
+        setMaximumSize(new java.awt.Dimension(460, 418));
+        setMinimumSize(new java.awt.Dimension(460, 418));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(460, 418));
 
         jPanelCearCuentaAhorroVista.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCearCuentaAhorroVista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelCearCuentaAhorroVista.setMaximumSize(new java.awt.Dimension(418, 578));
-        jPanelCearCuentaAhorroVista.setMinimumSize(new java.awt.Dimension(418, 578));
-        jPanelCearCuentaAhorroVista.setPreferredSize(new java.awt.Dimension(418, 578));
+        jPanelCearCuentaAhorroVista.setAlignmentX(0.0F);
+        jPanelCearCuentaAhorroVista.setAlignmentY(0.0F);
+        jPanelCearCuentaAhorroVista.setMaximumSize(new java.awt.Dimension(460, 418));
+        jPanelCearCuentaAhorroVista.setMinimumSize(new java.awt.Dimension(460, 418));
+        jPanelCearCuentaAhorroVista.setPreferredSize(new java.awt.Dimension(460, 418));
         jPanelCearCuentaAhorroVista.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanelCearCuentaAhorroVistaMouseDragged(evt);
@@ -147,13 +152,13 @@ AcessData AD;
                                     .addComponent(jLabelDescrip))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelCearCuentaAhorroVistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jFormattedTextFieldEnterName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextFieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jFormattedTextFieldPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanelCearCuentaAhorroVistaLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32))
         );
@@ -180,7 +185,7 @@ AcessData AD;
                 .addGroup(jPanelCearCuentaAhorroVistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,8 +215,14 @@ AcessData AD;
             String precio = jFormattedTextFieldPrecio.getText();
             String idTipoProd = (jComboBox1.getSelectedIndex()+1)+"";
             
-            
             dispose();
+            
+            JOptionPane.showMessageDialog(
+                    null,
+                    "El producto se creo correctamente",
+                    "Mensaje", JOptionPane.INFORMATION_MESSAGE); 
+            
+            
 
         } else {
             
@@ -219,9 +230,7 @@ AcessData AD;
                     null,
                     "Atención: Faltan Algunos Campos "
                     + "Por Rellenar",
-                    "Alerta", JOptionPane.ERROR_MESSAGE);
-
-            
+                    "Alerta", JOptionPane.ERROR_MESSAGE);  
         }
 
 

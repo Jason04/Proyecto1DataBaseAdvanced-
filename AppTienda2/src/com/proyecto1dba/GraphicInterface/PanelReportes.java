@@ -212,7 +212,7 @@ public class PanelReportes extends javax.swing.JPanel {
 
         jLabel80.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel80.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel80.setText("Cantidad de ordenes recibidas por tiopo de producto");
+        jLabel80.setText("Cantidad de ordenes recibidas por tipo de producto");
         jLabel80.setMaximumSize(new java.awt.Dimension(467, 22));
         jLabel80.setMinimumSize(new java.awt.Dimension(467, 22));
 

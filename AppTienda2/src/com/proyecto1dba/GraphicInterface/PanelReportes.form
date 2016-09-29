@@ -303,7 +303,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cantidad de ordenes recibidas por tiopo de producto"/>
+                <Property name="text" type="java.lang.String" value="Cantidad de ordenes recibidas por tipo de producto"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[467, 22]"/>
                 </Property>

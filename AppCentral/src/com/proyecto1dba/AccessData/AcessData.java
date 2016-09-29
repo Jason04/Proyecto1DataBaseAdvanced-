@@ -211,6 +211,13 @@ public class AcessData implements AccessDataInteface {
          
           
     }
+    
+      public String CrearProducto(String idTipoProd,String nombre,
+            String precio ){
+        
+        return restfulConnection.postRESTful( "https://sanjose-onlivecr.rhcloud.com/"
+                + "crearPro", "");    
+    }
 
     
    

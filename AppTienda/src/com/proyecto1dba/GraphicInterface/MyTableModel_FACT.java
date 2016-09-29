@@ -12,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author Oscar Montes
+ * @author Jason 
  */
 class MyTableModel_FACT extends AbstractTableModel {
     private String[] columnNames;

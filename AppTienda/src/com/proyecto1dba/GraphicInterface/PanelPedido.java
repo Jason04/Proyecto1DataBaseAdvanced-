@@ -330,6 +330,24 @@ public class PanelPedido extends javax.swing.JPanel {
         if (model.data.isEmpty()) {
             model.addRow(1);
         }
+        jFormattedTextField_Total.setText("₡ "+getTotal(model));
+        
+    }
+    private String getTotal(MyTableModel_FACT model) {
+        
+    int filas = model.getRowCount();
+        int result = 0;
+        for (int i = 0; i < filas; i++) {
+            if (model.getValueAt(i, 2) != null) {                
+                String om = model.getValueAt(i, 2).toString();
+                if (om.trim().length() != 0) {
+                        result = result + Integer.parseInt(om);
+                    
+                }
+            }
+
+        }
+        return result+"";
     }
 
     /**
@@ -683,6 +701,8 @@ public class PanelPedido extends javax.swing.JPanel {
         }
         return result;
     }
+    
+    
 
     private void clean() {
        jFormattedTextField_Cliente.setText("");
@@ -698,6 +718,8 @@ public class PanelPedido extends javax.swing.JPanel {
         jTable_Factura.revalidate();
         jTable_Factura.repaint();
         jTable_Factura.requestFocus();
+        
+        jFormattedTextField_Total.setText("");
       
     }
 

@@ -78,6 +78,8 @@ public class MyTableModelListener_FACT implements TableModelListener {
               model.setValueAt(descripcion, row,  1);
               model.setValueAt(precio, row, 2);///IMPORTANTE ESTE ORDEN
               
+              total.setText("₡ "+getTotal(model));
+              
           }
               // Por si el usuario no deja nada en la celda y ya tenia un cod
           // de un articulo entonces hace que se mantega el que ya estaba
@@ -121,5 +123,22 @@ public class MyTableModelListener_FACT implements TableModelListener {
             }
             return DatoCorregido;
     
+    }
+
+    private String getTotal(MyTableModel_FACT model) {
+        
+    int filas = model.getRowCount();
+        int result = 0;
+        for (int i = 0; i < filas; i++) {
+            if (model.getValueAt(i, 2) != null) {                
+                String om = model.getValueAt(i, 2).toString();
+                if (om.trim().length() != 0) {
+                        result = result + Integer.parseInt(om);
+                    
+                }
+            }
+
+        }
+        return result+"";
     }
 }

@@ -198,7 +198,7 @@ public class NewJDialog_Buscador extends javax.swing.JDialog {
      */
     public void actualizaTablaParaInventario() {
 
-        String[] columnNames = {"idProducto","Descripcion","Precio"};
+        String[] columnNames = {"idProducto","Descripcion","Precio","Tipo"};
         ArrayList<ArrayList<String>> data = AD.getProductos();
        this.jTable_Generica.setModel(new MyTableModel_Generic(columnNames, data));
 //        //Crea el ordenador para la tabla generica

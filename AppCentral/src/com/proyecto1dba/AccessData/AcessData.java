@@ -153,8 +153,8 @@ public class AcessData implements AccessDataInteface {
         columnas_tabla.add("CANTIDAD");
         ArrayList<ArrayList<String>> cantidad =
                 restfulConnection.
-                getRESTful("https://sanjose-onlivecr.rhcloud.com/ordenesxtipoProducto?idProducto="
-                + tipo, columnas_tabla);
+                getRESTful("https://sanjose-onlivecr.rhcloud.com/ordenesxtipoysitio?idTipoProducto="+tipo+"&idRestaurante="+sitio
+                , columnas_tabla);
 
         result = cantidad.get(0).get(0);
 
